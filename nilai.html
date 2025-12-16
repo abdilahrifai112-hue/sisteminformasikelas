@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai - SIKELAS XI MIPA 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h2>SIKELAS</h2>
+                </div>
+                <p class="class-name">XI MIPA 1</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
+                <li class="nav-item"><a href="biodata.html" class="nav-link"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="absensi.html" class="nav-link"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
+                <li class="nav-item"><a href="nilai.html" class="nav-link active"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="wali-kelas">
+                    <p class="label">Wali Kelas</p>
+                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- MAIN CONTENT - Halaman Nilai 15 Siswa -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1>📊 Nilai Siswa</h1>
+                    <p class="subtitle">Rekap nilai siswa kelas XI MIPA 1</p>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span class="day">Semester</span>
+                        <span class="date">Ganjil 2024/2025</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- STATISTIK NILAI -->
+            <div class="quick-info" style="margin-bottom: 24px;">
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #10B981, #059669);">📈</div>
+                    <div class="info-content"><h4>Nilai Tertinggi</h4><p class="info-value">95.8</p></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">📊</div>
+                    <div class="info-content"><h4>Rata-rata Kelas</h4><p class="info-value">87.3</p></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">📉</div>
+                    <div class="info-content"><h4>Nilai Terendah</h4><p class="info-value">80.2</p></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #EC4899, #DB2777);">🎯</div>
+                    <div class="info-content"><h4>KKM</h4><p class="info-value">75</p></div>
+                </div>
+            </div>
+            
+            <!-- TABEL NILAI 15 SISWA -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>📋 Rekap Nilai Per Mata Pelajaran</h3>
+                    <span class="badge">UTS + UAS</span>
+                </div>
+                <div class="card-body" style="overflow-x: auto;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th style="text-align:center;">MTK</th>
+                                <th style="text-align:center;">FIS</th>
+                                <th style="text-align:center;">KIM</th>
+                                <th style="text-align:center;">BIO</th>
+                                <th style="text-align:center;">IND</th>
+                                <th style="text-align:center;">ING</th>
+                                <th style="text-align:center;">Rata²</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ahmad Fauzi</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;" class="grade-b">86</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;" class="grade-b">80</td><td style="text-align:center;"><span class="grade-b">84.2</span></td></tr>
+                            <tr><td>2</td><td>Anisa Safitri</td><td style="text-align:center;" class="grade-a">96</td><td style="text-align:center;" class="grade-a">95</td><td style="text-align:center;" class="grade-a">97</td><td style="text-align:center;" class="grade-a">94</td><td style="text-align:center;" class="grade-a">96</td><td style="text-align:center;" class="grade-a">97</td><td style="text-align:center;"><span class="grade-a">95.8</span></td></tr>
+                            <tr><td>3</td><td>Budi Pratama</td><td style="text-align:center;" class="grade-a">94</td><td style="text-align:center;" class="grade-a">92</td><td style="text-align:center;" class="grade-a">95</td><td style="text-align:center;" class="grade-a">93</td><td style="text-align:center;" class="grade-a">94</td><td style="text-align:center;" class="grade-a">93</td><td style="text-align:center;"><span class="grade-a">93.5</span></td></tr>
+                            <tr><td>4</td><td>Citra Wulandari</td><td style="text-align:center;" class="grade-a">93</td><td style="text-align:center;" class="grade-a">91</td><td style="text-align:center;" class="grade-a">92</td><td style="text-align:center;" class="grade-a">93</td><td style="text-align:center;" class="grade-a">91</td><td style="text-align:center;" class="grade-a">92</td><td style="text-align:center;"><span class="grade-a">92.0</span></td></tr>
+                            <tr><td>5</td><td>Dimas Hakim</td><td style="text-align:center;" class="grade-a">91</td><td style="text-align:center;" class="grade-a">90</td><td style="text-align:center;" class="grade-a">92</td><td style="text-align:center;" class="grade-b">89</td><td style="text-align:center;" class="grade-a">91</td><td style="text-align:center;" class="grade-a">91</td><td style="text-align:center;"><span class="grade-a">90.7</span></td></tr>
+                            <tr><td>6</td><td>Eka Nugraha</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-a">90</td><td style="text-align:center;" class="grade-b">89</td><td style="text-align:center;" class="grade-a">90</td><td style="text-align:center;" class="grade-b">89</td><td style="text-align:center;" class="grade-a">90</td><td style="text-align:center;"><span class="grade-b">89.3</span></td></tr>
+                            <tr><td>7</td><td>Fajar Aditya</td><td style="text-align:center;" class="grade-b">87</td><td style="text-align:center;" class="grade-b">89</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-b">89</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-a">90</td><td style="text-align:center;"><span class="grade-b">88.5</span></td></tr>
+                            <tr><td>8</td><td>Gita Rahayu</td><td style="text-align:center;" class="grade-b">86</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-b">89</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-b">87</td><td style="text-align:center;" class="grade-a">90</td><td style="text-align:center;"><span class="grade-b">88.0</span></td></tr>
+                            <tr><td>9</td><td>Hendra Wijaya</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;" class="grade-b">86</td><td style="text-align:center;" class="grade-b">87</td><td style="text-align:center;" class="grade-b">88</td><td style="text-align:center;" class="grade-b">86</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;"><span class="grade-b">86.2</span></td></tr>
+                            <tr><td>10</td><td>Indah Permata</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;" class="grade-b">86</td><td style="text-align:center;" class="grade-b">87</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;"><span class="grade-b">85.2</span></td></tr>
+                            <tr><td>11</td><td>Joko Susanto</td><td style="text-align:center;" class="grade-b">83</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;" class="grade-b">86</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;" class="grade-b">83</td><td style="text-align:center;"><span class="grade-b">84.2</span></td></tr>
+                            <tr><td>12</td><td>Kartika Dewi</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;" class="grade-b">83</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;" class="grade-b">85</td><td style="text-align:center;" class="grade-b">83</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;"><span class="grade-b">83.2</span></td></tr>
+                            <tr><td>13</td><td>Lukman Hakim</td><td style="text-align:center;" class="grade-b">81</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;" class="grade-b">83</td><td style="text-align:center;" class="grade-b">84</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;" class="grade-b">81</td><td style="text-align:center;"><span class="grade-b">82.2</span></td></tr>
+                            <tr><td>14</td><td>Maya Sari</td><td style="text-align:center;" class="grade-b">80</td><td style="text-align:center;" class="grade-b">81</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;" class="grade-b">83</td><td style="text-align:center;" class="grade-b">81</td><td style="text-align:center;" class="grade-b">80</td><td style="text-align:center;"><span class="grade-b">81.2</span></td></tr>
+                            <tr><td>15</td><td>Nico Pratama</td><td style="text-align:center;" class="grade-b">80</td><td style="text-align:center;" class="grade-b">80</td><td style="text-align:center;" class="grade-b">81</td><td style="text-align:center;" class="grade-b">82</td><td style="text-align:center;" class="grade-b">80</td><td style="text-align:center;" class="grade-c">78</td><td style="text-align:center;"><span class="grade-b">80.2</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- KETERANGAN NILAI -->
+            <div class="card" style="margin-top: 24px;">
+                <div class="card-header"><h3>📌 Keterangan Nilai</h3></div>
+                <div class="card-body">
+                    <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="grade-a">90-100</span><span style="color: var(--text-secondary);">= Sangat Baik (A)</span></div>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="grade-b">80-89</span><span style="color: var(--text-secondary);">= Baik (B)</span></div>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="grade-c">70-79</span><span style="color: var(--text-secondary);">= Cukup (C)</span></div>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="grade-d">&lt;70</span><span style="color: var(--text-secondary);">= Kurang (D)</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

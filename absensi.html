@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi - SIKELAS XI MIPA 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h2>SIKELAS</h2>
+                </div>
+                <p class="class-name">XI MIPA 1</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
+                <li class="nav-item"><a href="biodata.html" class="nav-link"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="absensi.html" class="nav-link active"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
+                <li class="nav-item"><a href="nilai.html" class="nav-link"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="wali-kelas">
+                    <p class="label">Wali Kelas</p>
+                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- MAIN CONTENT - Rekap Absensi 15 Siswa -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1>📋 Rekap Absensi</h1>
+                    <p class="subtitle">Data kehadiran siswa kelas XI MIPA 1</p>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span class="day">Bulan</span>
+                        <span class="date">Desember 2024</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- STATISTIK ABSENSI -->
+            <div class="quick-info" style="margin-bottom: 24px;">
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #10B981, #059669);">✅</div>
+                    <div class="info-content"><h4>Total Hadir</h4><p class="info-value">210</p></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">📝</div>
+                    <div class="info-content"><h4>Total Izin</h4><p class="info-value">8</p></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #3B82F6, #2563EB);">🏥</div>
+                    <div class="info-content"><h4>Total Sakit</h4><p class="info-value">5</p></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #EF4444, #DC2626);">❌</div>
+                    <div class="info-content"><h4>Total Alpha</h4><p class="info-value">2</p></div>
+                </div>
+            </div>
+            
+            <!-- TABEL ABSENSI 15 SISWA -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>📊 Rekap Per Siswa</h3>
+                    <span class="badge">Semester 1</span>
+                </div>
+                <div class="card-body" style="overflow-x: auto;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Siswa</th>
+                                <th style="text-align: center;">H</th>
+                                <th style="text-align: center;">I</th>
+                                <th style="text-align: center;">S</th>
+                                <th style="text-align: center;">A</th>
+                                <th style="text-align: center;">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ahmad Fauzi</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>2</td><td>Anisa Safitri</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>3</td><td>Budi Pratama</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                            <tr><td>4</td><td>Citra Wulandari</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>5</td><td>Dimas Hakim</td><td style="text-align:center;"><span class="status-badge status-hadir">13</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">2</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-b">87%</span></td></tr>
+                            <tr><td>6</td><td>Eka Nugraha</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>7</td><td>Fajar Aditya</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                            <tr><td>8</td><td>Gita Rahayu</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>9</td><td>Hendra Wijaya</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                            <tr><td>10</td><td>Indah Permata</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>11</td><td>Joko Susanto</td><td style="text-align:center;"><span class="status-badge status-hadir">13</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-alpha">1</span></td><td style="text-align:center;"><span class="grade-b">87%</span></td></tr>
+                            <tr><td>12</td><td>Kartika Dewi</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
+                            <tr><td>13</td><td>Lukman Hakim</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                            <tr><td>14</td><td>Maya Sari</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                            <tr><td>15</td><td>Nico Pratama</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- KETERANGAN -->
+            <div class="card" style="margin-top: 24px;">
+                <div class="card-header"><h3>📌 Keterangan Status</h3></div>
+                <div class="card-body">
+                    <div style="display: flex; gap: 32px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-hadir">H</span><span style="color: var(--text-secondary);">= Hadir</span></div>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-izin">I</span><span style="color: var(--text-secondary);">= Izin</span></div>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-sakit">S</span><span style="color: var(--text-secondary);">= Sakit</span></div>
+                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-alpha">A</span><span style="color: var(--text-secondary);">= Alpha</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

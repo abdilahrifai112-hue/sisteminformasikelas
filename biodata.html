@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - SIKELAS XI MIPA 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ====================================
+         STYLE UNTUK HALAMAN PROFIL PRIBADI
+    ==================================== -->
+    <style>
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .profile-header-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .profile-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-header-card h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .profile-header-card .nis {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .profile-detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .profile-detail-item {
+            display: flex;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .profile-detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .profile-detail-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        
+        .profile-detail-content {
+            flex: 1;
+        }
+        
+        .profile-detail-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        
+        .profile-detail-value {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .logout-btn {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <h2>SIKELAS</h2>
+                </div>
+                <p class="class-name">XI MIPA 1</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
+                <li class="nav-item"><a href="biodata.html" class="nav-link active"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="absensi.html" class="nav-link"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
+                <li class="nav-item"><a href="nilai.html" class="nav-link"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="wali-kelas">
+                    <p class="label">Wali Kelas</p>
+                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- MAIN CONTENT - PROFIL SAYA -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1>👤 Profil Saya</h1>
+                    <p class="subtitle">Data pribadi siswa</p>
+                </div>
+            </header>
+            
+            <!-- ========================================
+                 PROFIL PRIBADI
+                 Menampilkan data diri siswa yang login
+            ======================================== -->
+            <div class="profile-container">
+                
+                <!-- HEADER PROFIL DENGAN FOTO -->
+                <div class="profile-header-card">
+                    <div class="profile-avatar-large">AF</div>
+                    <h2>Ahmad Fauzi</h2>
+                    <p class="nis">NIS: 2024001</p>
+                </div>
+                
+                <!-- DETAIL PROFIL -->
+                <div class="profile-detail-card">
+                    
+                    <!-- JENIS KELAMIN -->
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon" style="background: rgba(79, 70, 229, 0.2);">
+                            👤
+                        </div>
+                        <div class="profile-detail-content">
+                            <p class="profile-detail-label">Jenis Kelamin</p>
+                            <p class="profile-detail-value">Laki-laki</p>
+                        </div>
+                    </div>
+                    
+                    <!-- TEMPAT TANGGAL LAHIR -->
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon" style="background: rgba(236, 72, 153, 0.2);">
+                            🎂
+                        </div>
+                        <div class="profile-detail-content">
+                            <p class="profile-detail-label">Tempat, Tanggal Lahir</p>
+                            <p class="profile-detail-value">Jakarta, 15 Januari 2008</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ALAMAT -->
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon" style="background: rgba(16, 185, 129, 0.2);">
+                            🏠
+                        </div>
+                        <div class="profile-detail-content">
+                            <p class="profile-detail-label">Alamat</p>
+                            <p class="profile-detail-value">Jl. Merdeka No. 12, Jakarta Selatan</p>
+                        </div>
+                    </div>
+                    
+                    <!-- KELAS -->
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon" style="background: rgba(245, 158, 11, 0.2);">
+                            🏫
+                        </div>
+                        <div class="profile-detail-content">
+                            <p class="profile-detail-label">Kelas</p>
+                            <p class="profile-detail-value">XI MIPA 1</p>
+                        </div>
+                    </div>
+                    
+                    <!-- TAHUN AJARAN -->
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon" style="background: rgba(59, 130, 246, 0.2);">
+                            📅
+                        </div>
+                        <div class="profile-detail-content">
+                            <p class="profile-detail-label">Tahun Ajaran</p>
+                            <p class="profile-detail-value">2024/2025</p>
+                        </div>
+                    </div>
+                    
+                    <!-- WALI KELAS -->
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon" style="background: rgba(139, 92, 246, 0.2);">
+                            👩‍🏫
+                        </div>
+                        <div class="profile-detail-content">
+                            <p class="profile-detail-label">Wali Kelas</p>
+                            <p class="profile-detail-value">Bu Siti Aminah, S.Pd</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- TOMBOL LOGOUT -->
+                <div style="text-align: center;">
+                    <a href="login.html" class="logout-btn">🚪 Keluar / Ganti Akun</a>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>

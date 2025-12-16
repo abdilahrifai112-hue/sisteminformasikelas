@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SIKELAS XI MIPA 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ====================================
+         STYLING HALAMAN LOGIN
+         Halaman pertama untuk memilih identitas
+    ==================================== -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary-color: #4F46E5;
+            --secondary-color: #7C3AED;
+            --bg-main: #0F172A;
+            --bg-card: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+        }
+        
+        .login-container { width: 100%; max-width: 450px; padding: 20px; }
+        
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .login-logo { font-size: 64px; margin-bottom: 16px; }
+        
+        .login-title {
+            font-size: 28px; font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #818CF8, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .login-subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 32px; }
+        
+        .login-label {
+            display: block; text-align: left;
+            color: var(--text-secondary);
+            font-size: 13px; margin-bottom: 8px;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        
+        /* GRID UNTUK PILIHAN SISWA */
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .student-btn {
+            display: block;
+            padding: 16px 8px;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .student-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+        
+        .student-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .class-info {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .class-info p { color: var(--text-secondary); font-size: 13px; margin-bottom: 4px; }
+        .class-info .school-name { color: var(--text-primary); font-weight: 600; }
+        
+        .guest-btn {
+            display: block;
+            padding: 12px 24px;
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .guest-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            
+            <div class="login-logo">📚</div>
+            <h1 class="login-title">SIKELAS</h1>
+            <p class="login-subtitle">Sistem Informasi Kelas XI MIPA 1</p>
+            
+            <!-- PILIH SISWA - KLIK LANGSUNG KE PROFIL -->
+            <label class="login-label">Pilih Nama Anda</label>
+            <div class="student-grid">
+                <a href="profil/ahmad-fauzi.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">AF</div>
+                    Ahmad Fauzi
+                </a>
+                <a href="profil/anisa-safitri.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #EC4899, #F472B6);">AS</div>
+                    Anisa Safitri
+                </a>
+                <a href="profil/budi-pratama.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #10B981, #34D399);">BP</div>
+                    Budi Pratama
+                </a>
+                <a href="profil/citra-wulandari.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">CW</div>
+                    Citra Wulandari
+                </a>
+                <a href="profil/dimas-hakim.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">DH</div>
+                    Dimas Hakim
+                </a>
+                <a href="profil/eka-nugraha.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">EN</div>
+                    Eka Nugraha
+                </a>
+                <a href="profil/fajar-aditya.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #EF4444, #F87171);">FA</div>
+                    Fajar Aditya
+                </a>
+                <a href="profil/gita-rahayu.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #14B8A6, #2DD4BF);">GR</div>
+                    Gita Rahayu
+                </a>
+                <a href="profil/hendra-wijaya.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #6366F1, #818CF8);">HW</div>
+                    Hendra Wijaya
+                </a>
+                <a href="profil/indah-permata.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #A855F7, #C084FC);">IP</div>
+                    Indah Permata
+                </a>
+                <a href="profil/joko-susanto.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #F97316, #FB923C);">JS</div>
+                    Joko Susanto
+                </a>
+                <a href="profil/kartika-dewi.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #EC4899, #DB2777);">KD</div>
+                    Kartika Dewi
+                </a>
+                <a href="profil/lukman-hakim.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #059669, #10B981);">LH</div>
+                    Lukman Hakim
+                </a>
+                <a href="profil/maya-sari.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #7C3AED, #8B5CF6);">MS</div>
+                    Maya Sari
+                </a>
+                <a href="profil/nico-pratama.html" class="student-btn">
+                    <div class="student-avatar" style="background: linear-gradient(135deg, #2563EB, #3B82F6);">NP</div>
+                    Nico Pratama
+                </a>
+            </div>
+            
+            <!-- MASUK SEBAGAI GUEST -->
+            <a href="index.html" class="guest-btn">🚀 Masuk Tanpa Login (Guest)</a>
+            
+            <div class="class-info">
+                <p>Tahun Ajaran 2024/2025</p>
+                <p class="school-name">SMA Negeri 1</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
