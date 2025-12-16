@@ -3,218 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SIKELAS XI MIPA 1</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- ====================================
-         STYLING HALAMAN LOGIN
-         Halaman pertama untuk memilih identitas
-    ==================================== -->
+    <title>Login - SIK MIPA 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
-            --primary-color: #4F46E5;
-            --secondary-color: #7C3AED;
-            --bg-main: #0F172A;
-            --bg-card: #1E293B;
-            --text-primary: #F8FAFC;
-            --text-secondary: #94A3B8;
-            --border-color: #334155;
+            --primary: #6366f1;
+            --accent: #ec4899;
+            --text: #f8fafc;
         }
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Outfit',sans-serif; }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-main);
+            background: #0f172a;
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+            overflow: hidden;
+            position: relative;
         }
-        
-        .login-container { width: 100%; max-width: 450px; padding: 20px; }
-        
-        .login-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 48px 40px;
-            text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .login-logo { font-size: 64px; margin-bottom: 16px; }
-        
-        .login-title {
-            font-size: 28px; font-weight: 700;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #818CF8, #EC4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .login-subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 32px; }
-        
-        .login-label {
-            display: block; text-align: left;
-            color: var(--text-secondary);
-            font-size: 13px; margin-bottom: 8px;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        
-        /* GRID UNTUK PILIHAN SISWA */
-        .student-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        
-        .student-btn {
-            display: block;
-            padding: 16px 8px;
-            background: var(--bg-main);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .student-btn:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-        }
-        
-        .student-avatar {
-            width: 40px; height: 40px;
+
+        /* DYNAMIC BACKGROUND */
+        .orb {
+            position: absolute;
             border-radius: 50%;
-            margin: 0 auto 8px;
+            filter: blur(80px);
+            z-index: 0;
+            animation: moveOrb 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .orb-1 { width:400px; height:400px; background:#6366f1; top:-100px; left:-100px; opacity:0.4; animation-duration:25s; }
+        .orb-2 { width:300px; height:300px; background:#ec4899; bottom:-50px; right:-50px; opacity:0.3; animation-duration:20s; }
+        .orb-3 { width:200px; height:200px; background:#10b981; bottom:20%; left:20%; opacity:0.2; animation-duration:30s; }
+
+        @keyframes moveOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
+
+        .login-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            /* animation: floatCard 6s ease-in-out infinite; REMOVED FOR PERFORMANCE */
+        }
+
+        @keyframes floatCard { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+        /* LEFT SIDE */
+        .login-main {
+            flex: 1.2;
+            padding: 50px;
+            background: rgba(15, 23, 42, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand { 
+            display: flex; align-items: center; gap: 12px; margin-bottom: 40px; 
+        }
+        .brand-icon { 
+            width: 44px; height: 44px; 
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(99,102,241,0.3);
+        }
+        .brand-text h1 { font-size: 24px; font-weight: 800; letter-spacing: -1px; }
+        .brand-text p { font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; }
+
+        .welcome-text h2 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+        .welcome-text p { color: #94a3b8; margin-bottom: 32px; font-size: 14px; }
+
+        .input-group { position: relative; margin-bottom: 24px; }
+        .custom-select {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            border-radius: 12px;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s;
+            appearance: none;
+            font-size: 15px;
+        }
+        .custom-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+            background: rgba(15, 23, 42, 0.9);
+        }
+        .select-arrow {
+            position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+            pointer-events: none; opacity: 0.6;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, var(--primary), #4f46e5);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(99,102,241,0.4);
+        }
+        .btn-submit::after {
+            content: ''; position: absolute; top:0; left:-100%; width:100%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .btn-submit:hover::after { left: 100%; }
+
+        .teacher-login {
+            margin-top: 20px; text-align: center;
+        }
+        .teacher-login a {
+            color: #94a3b8; text-decoration: none; font-size: 13px; transition: 0.2s;
+        }
+        .teacher-login a:hover { color: var(--accent); }
+
+        /* RIGHT SIDE */
+        .login-side {
+            flex: 0.8;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.1));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            font-weight: 700;
-            color: white;
+            position: relative;
+            border-left: 1px solid rgba(255,255,255,0.05);
         }
         
-        .class-info {
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-color);
+        .leaderboard-widget {
+            width: 280px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-        
-        .class-info p { color: var(--text-secondary); font-size: 13px; margin-bottom: 4px; }
-        .class-info .school-name { color: var(--text-primary); font-weight: 600; }
-        
-        .guest-btn {
-            display: block;
-            padding: 12px 24px;
-            background: rgba(79, 70, 229, 0.2);
-            border: 1px solid var(--primary-color);
-            border-radius: 8px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 16px;
-            transition: all 0.3s ease;
+        .lb-header { 
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; 
+            padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);
         }
+        .lb-title { font-size: 14px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
         
-        .guest-btn:hover {
-            background: var(--primary-color);
-            color: white;
+        .lb-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background: rgba(255,255,255,0.02);
+            transition: 0.2s;
+        }
+        .lb-item:hover { background: rgba(255,255,255,0.05); transform: scale(1.02); }
+        
+        .lb-rank { width: 24px; font-weight: bold; color: var(--primary); text-align: center; font-size: 14px; }
+        .lb-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: linear-gradient(135deg, #334155, #475569);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: bold; Color: #e2e8f0;
+        }
+        .lb-info h4 { font-size: 13px; margin-bottom: 2px; }
+        .lb-info p { font-size: 11px; color: #94a3b8; }
+        .lb-score { margin-left: auto; font-size: 13px; font-weight: bold; color: #10b981; }
+
+        @media (max-width: 800px) {
+            .login-wrapper { flex-direction: column; max-width: 400px; }
+            .login-side { display: none; }
+            .orb { opacity: 0.2; }
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-card">
-            
-            <div class="login-logo">📚</div>
-            <h1 class="login-title">SIKELAS</h1>
-            <p class="login-subtitle">Sistem Informasi Kelas XI MIPA 1</p>
-            
-            <!-- PILIH SISWA - KLIK LANGSUNG KE PROFIL -->
-            <label class="login-label">Pilih Nama Anda</label>
-            <div class="student-grid">
-                <a href="profil/ahmad-fauzi.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">AF</div>
-                    Ahmad Fauzi
-                </a>
-                <a href="profil/anisa-safitri.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #EC4899, #F472B6);">AS</div>
-                    Anisa Safitri
-                </a>
-                <a href="profil/budi-pratama.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #10B981, #34D399);">BP</div>
-                    Budi Pratama
-                </a>
-                <a href="profil/citra-wulandari.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">CW</div>
-                    Citra Wulandari
-                </a>
-                <a href="profil/dimas-hakim.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">DH</div>
-                    Dimas Hakim
-                </a>
-                <a href="profil/eka-nugraha.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">EN</div>
-                    Eka Nugraha
-                </a>
-                <a href="profil/fajar-aditya.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #EF4444, #F87171);">FA</div>
-                    Fajar Aditya
-                </a>
-                <a href="profil/gita-rahayu.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #14B8A6, #2DD4BF);">GR</div>
-                    Gita Rahayu
-                </a>
-                <a href="profil/hendra-wijaya.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #6366F1, #818CF8);">HW</div>
-                    Hendra Wijaya
-                </a>
-                <a href="profil/indah-permata.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #A855F7, #C084FC);">IP</div>
-                    Indah Permata
-                </a>
-                <a href="profil/joko-susanto.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #F97316, #FB923C);">JS</div>
-                    Joko Susanto
-                </a>
-                <a href="profil/kartika-dewi.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #EC4899, #DB2777);">KD</div>
-                    Kartika Dewi
-                </a>
-                <a href="profil/lukman-hakim.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #059669, #10B981);">LH</div>
-                    Lukman Hakim
-                </a>
-                <a href="profil/maya-sari.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #7C3AED, #8B5CF6);">MS</div>
-                    Maya Sari
-                </a>
-                <a href="profil/nico-pratama.html" class="student-btn">
-                    <div class="student-avatar" style="background: linear-gradient(135deg, #2563EB, #3B82F6);">NP</div>
-                    Nico Pratama
-                </a>
+    
+    <!-- BACKGROUND ORBS -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="login-wrapper">
+        <!-- FORM SECTION -->
+        <div class="login-main">
+            <div class="brand">
+                <div class="brand-icon">🎓</div>
+                <div class="brand-text">
+                    <h1>SIK</h1>
+                    <p>XI MIPA 1</p>
+                </div>
             </div>
-            
-            <!-- MASUK SEBAGAI GUEST -->
-            <a href="index.html" class="guest-btn">🚀 Masuk Tanpa Login (Guest)</a>
-            
-            <div class="class-info">
-                <p>Tahun Ajaran 2024/2025</p>
-                <p class="school-name">SMA Negeri 1</p>
+
+            <div class="welcome-text">
+                <h2>Selamat Datang</h2>
+                <p>Masuk ke portal kelas digital yang modern 🚀</p>
+            </div>
+
+            <div class="input-group">
+                <select id="studentSelect" class="custom-select">
+                    <option value="" disabled selected>Pilih Nama Siswa...</option>
+                </select>
+                <div class="select-arrow">▼</div>
+            </div>
+
+            <button onclick="handleLogin()" class="btn-submit">Login Sekarang</button>
+
+            <div class="teacher-login">
+                <a href="#" onclick="handleTeacherLogin()">Masuk sebagai Wali Kelas (Guru)</a>
+            </div>
+        </div>
+
+        <!-- LEADERBOARD SECTION -->
+        <div class="login-side">
+            <div class="leaderboard-widget">
+                <div class="lb-header">
+                    <div class="lb-title"><span>🏆</span> Top Performers</div>
+                    <span style="font-size:10px; padding:4px 8px; background:rgba(16,185,129,0.2); color:#10b981; border-radius:20px;">Live Update</span>
+                </div>
+                <div id="rankList">
+                    <!-- Populated by JS -->
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        const select = document.getElementById('studentSelect');
+        const studentsList = getStudents();
+        
+            // 1. POPULATE OPTIONS
+        studentsList.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.id;
+            opt.innerText = `${s.name} (NIS: ${s.nis})`;
+            select.appendChild(opt);
+        });
+
+        // 2. RENDER RANKING
+        const list = document.getElementById('rankList');
+        const ranked = studentsList.map(s => {
+            const g = s.grades;
+            const avg = ((Number(g.mtk)+Number(g.fis)+Number(g.kim)+Number(g.bio)+Number(g.ind)+Number(g.ing))/6).toFixed(1);
+            return {...s, avg};
+        }).sort((a,b) => b.avg - a.avg).slice(0,3);
+
+        ranked.forEach((s, i) => {
+            const div = document.createElement('div');
+            div.className = 'lb-item';
+            div.innerHTML = `
+                <div class="lb-rank">#${i+1}</div>
+                <div class="lb-avatar" style="background:${s.color}">${s.avatar}</div>
+                <div class="lb-info">
+                    <h4>${s.name}</h4>
+                    <p>NIS: ${s.nis}</p>
+                </div>
+                <div class="lb-score">${s.avg}</div>
+            `;
+            list.appendChild(div);
+        });
+
+        // 3. LOGIN
+        function handleLogin() {
+            const val = select.value;
+            if(!val) return alert("Pilih nama dulu!");
+            if(loginUser(val)) window.location.href='index.html';
+        }
+
+        function handleTeacherLogin() {
+            if(confirm("Login sebagai Wali Kelas?")) {
+                loginAsTeacher();
+                window.location.href='index.html';
+            }
+        }
+    </script>
 </body>
 </html>

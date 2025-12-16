@@ -4,176 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Piket - SIKELAS XI MIPA 1</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- MENGGUNAKAN STYLE BARU -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .piket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .piket-card {
+            background: var(--bg-card);
+            border: var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .piket-card:hover { transform: translateY(-5px); }
+
+        .day-header {
+            padding: 16px;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .members { padding: 16px; }
+
+        .member {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+        .member:last-child { border-bottom: none; }
+
+        .member-avatar {
+            width: 32px; height: 32px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- SIDEBAR NAVIGATION -->
+        <!-- SIDEBAR -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <span class="logo-icon">📚</span>
-                    <h2>SIKELAS</h2>
+                    <span class="logo-icon">🎓</span>
+                    <h2>SIK</h2>
                 </div>
                 <p class="class-name">XI MIPA 1</p>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
                 <li class="nav-item"><a href="biodata.html" class="nav-link"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
-                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
-                <li class="nav-item"><a href="piket.html" class="nav-link active"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link active"><span class="nav-icon">🧹</span><span class="nav-text">Piket</span></a></li>
                 <li class="nav-item"><a href="absensi.html" class="nav-link"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
                 <li class="nav-item"><a href="nilai.html" class="nav-link"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
             </ul>
             <div class="sidebar-footer">
-                <div class="wali-kelas">
-                    <p class="label">Wali Kelas</p>
-                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                    <p>Wali Kelas</p>
+                    <p style="color: var(--text-main); font-weight: 500;">Bu Siti Aminah, S.Pd</p>
+                    <p style="font-size: 10px; opacity: 0.7;">NISN: 198501282010012009</p>
                 </div>
+                <button onclick="logoutUser()" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%;">🚪 Keluar</button>
             </div>
         </nav>
         
-        <!-- MAIN CONTENT - Jadwal Piket 15 Siswa -->
         <main class="main-content">
-            <header class="header">
-                <div class="header-left">
-                    <h1>🧹 Jadwal Piket</h1>
-                    <p class="subtitle">Jadwal piket harian kelas XI MIPA 1</p>
-                </div>
-                <div class="header-right">
-                    <div class="date-display">
-                        <span class="day">Hari Ini</span>
-                        <span class="date">Senin</span>
-                    </div>
-                </div>
-            </header>
+            <h1 class="hero-title" style="font-size: 28px; margin-bottom: 8px;">🧹 Jadwal Piket</h1>
+            <p style="color: var(--text-muted); margin-bottom: 32px;">Jangan lupa piket ya biar kelas bersih! ✨</p>
             
-            <!-- GRID JADWAL PIKET - 15 siswa dibagi 5 hari (3 per hari) -->
             <div class="piket-grid">
-                
                 <!-- SENIN -->
                 <div class="piket-card">
-                    <div class="day-header" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), rgba(124, 58, 237, 0.3));">
-                        📅 Senin
-                    </div>
+                    <div class="day-header" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">SENIN</div>
                     <div class="members">
-                        <div class="member">
-                            <div class="member-avatar">AF</div>
-                            <span>Ahmad Fauzi</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">AS</div>
-                            <span>Anisa Safitri</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">BP</div>
-                            <span>Budi Pratama</span>
-                        </div>
+                        <div class="member"><div class="member-avatar">AF</div><span>Ahmad Fauzi</span></div>
+                        <div class="member"><div class="member-avatar">AS</div><span>Anisa Safitri</span></div>
+                        <div class="member"><div class="member-avatar">BP</div><span>Budi Pratama</span></div>
                     </div>
                 </div>
-                
+
                 <!-- SELASA -->
                 <div class="piket-card">
-                    <div class="day-header" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.3));">
-                        📅 Selasa
-                    </div>
+                    <div class="day-header" style="background: linear-gradient(135deg, #10B981, #059669);">SELASA</div>
                     <div class="members">
-                        <div class="member">
-                            <div class="member-avatar">CW</div>
-                            <span>Citra Wulandari</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">DH</div>
-                            <span>Dimas Hakim</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">EN</div>
-                            <span>Eka Nugraha</span>
-                        </div>
+                        <div class="member"><div class="member-avatar">CW</div><span>Citra Wulandari</span></div>
+                        <div class="member"><div class="member-avatar">DH</div><span>Dimas Hakim</span></div>
+                        <div class="member"><div class="member-avatar">EN</div><span>Eka Nugraha</span></div>
                     </div>
                 </div>
-                
+
                 <!-- RABU -->
                 <div class="piket-card">
-                    <div class="day-header" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(217, 119, 6, 0.3));">
-                        📅 Rabu
-                    </div>
+                    <div class="day-header" style="background: linear-gradient(135deg, #F59E0B, #D97706);">RABU</div>
                     <div class="members">
-                        <div class="member">
-                            <div class="member-avatar">FA</div>
-                            <span>Fajar Aditya</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">GR</div>
-                            <span>Gita Rahayu</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">HW</div>
-                            <span>Hendra Wijaya</span>
-                        </div>
+                        <div class="member"><div class="member-avatar">FA</div><span>Fajar Aditya</span></div>
+                        <div class="member"><div class="member-avatar">GR</div><span>Gita Rahayu</span></div>
+                        <div class="member"><div class="member-avatar">HW</div><span>Hendra Wijaya</span></div>
                     </div>
                 </div>
-                
+
                 <!-- KAMIS -->
                 <div class="piket-card">
-                    <div class="day-header" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(219, 39, 119, 0.3));">
-                        📅 Kamis
-                    </div>
+                    <div class="day-header" style="background: linear-gradient(135deg, #EC4899, #DB2777);">KAMIS</div>
                     <div class="members">
-                        <div class="member">
-                            <div class="member-avatar">IP</div>
-                            <span>Indah Permata</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">JS</div>
-                            <span>Joko Susanto</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">KD</div>
-                            <span>Kartika Dewi</span>
-                        </div>
+                        <div class="member"><div class="member-avatar">IP</div><span>Indah Permata</span></div>
+                        <div class="member"><div class="member-avatar">JS</div><span>Joko Susanto</span></div>
+                        <div class="member"><div class="member-avatar">KD</div><span>Kartika Dewi</span></div>
                     </div>
                 </div>
-                
+
                 <!-- JUMAT -->
                 <div class="piket-card">
-                    <div class="day-header" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.3));">
-                        📅 Jumat
-                    </div>
+                    <div class="day-header" style="background: linear-gradient(135deg, #3B82F6, #2563EB);">JUMAT</div>
                     <div class="members">
-                        <div class="member">
-                            <div class="member-avatar">LH</div>
-                            <span>Lukman Hakim</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">MS</div>
-                            <span>Maya Sari</span>
-                        </div>
-                        <div class="member">
-                            <div class="member-avatar">NP</div>
-                            <span>Nico Pratama</span>
-                        </div>
+                        <div class="member"><div class="member-avatar">LH</div><span>Lukman Hakim</span></div>
+                        <div class="member"><div class="member-avatar">MS</div><span>Maya Sari</span></div>
+                        <div class="member"><div class="member-avatar">NP</div><span>Nico Pratama</span></div>
                     </div>
                 </div>
-                
             </div>
-            
-            <!-- CATATAN PIKET -->
-            <div class="card" style="margin-top: 24px;">
+
+            <div class="card">
                 <div class="card-header">
-                    <h3>📝 Catatan Penting</h3>
+                    <h3>💡 Info Piket</h3>
                 </div>
-                <div class="card-body">
-                    <ul style="color: var(--text-secondary); line-height: 2;">
-                        <li>Piket dilakukan <strong style="color: var(--text-primary);">sebelum jam pelajaran dimulai</strong> (pukul 06:30 - 07:00)</li>
-                        <li>Tugas: menyapu, mengepel, menghapus papan tulis, dan merapikan meja kursi</li>
-                        <li>Jika berhalangan, wajib <strong style="color: var(--accent-yellow);">bertukar jadwal</strong> dengan teman lain</li>
-                        <li>Nama pertama dalam daftar adalah koordinator piket hari itu</li>
-                    </ul>
-                </div>
+                <ul style="padding-left: 20px; line-height: 1.8; color: var(--text-muted);">
+                    <li>Datang lebih awal (06:30) untuk menyapu dan mengepel.</li>
+                    <li>Jangan lupa hapus papan tulis setelah pelajaran selesai.</li>
+                    <li>Jika berhalangan, wajib tukar jadwal dengan teman.</li>
+                </ul>
             </div>
         </main>
     </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        checkAuth();
+        highlightCurrentUser();
+    </script>
 </body>
 </html>

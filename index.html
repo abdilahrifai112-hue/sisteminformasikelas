@@ -4,242 +4,260 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - SIKELAS XI MIPA 1</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- ====================================
-         STYLE TAMBAHAN UNTUK SCHEDULE TABS
-         Menggunakan radio button trick untuk tabs
-    ==================================== -->
-    <style>
-        /* HIDE RADIO BUTTONS */
-        .schedule-tabs input[type="radio"] {
-            display: none;
-        }
-        
-        /* TAB LABELS */
-        .tab-labels {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .tab-label {
-            padding: 12px 24px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            color: var(--text-secondary);
-        }
-        
-        .tab-label:hover {
-            border-color: var(--primary-color);
-            color: var(--text-primary);
-        }
-        
-        /* ACTIVE TAB LABEL */
-        #tab-senin:checked ~ .tab-labels .label-senin,
-        #tab-selasa:checked ~ .tab-labels .label-selasa,
-        #tab-rabu:checked ~ .tab-labels .label-rabu,
-        #tab-kamis:checked ~ .tab-labels .label-kamis,
-        #tab-jumat:checked ~ .tab-labels .label-jumat {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-color: var(--primary-color);
-            color: white;
-        }
-        
-        /* TAB CONTENT - HIDDEN BY DEFAULT */
-        .tab-content {
-            display: none;
-        }
-        
-        /* SHOW ACTIVE TAB CONTENT */
-        #tab-senin:checked ~ .schedule-senin,
-        #tab-selasa:checked ~ .schedule-selasa,
-        #tab-rabu:checked ~ .schedule-rabu,
-        #tab-kamis:checked ~ .schedule-kamis,
-        #tab-jumat:checked ~ .schedule-jumat {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <!-- SIDEBAR NAVIGATION -->
+        <!-- SIDEBAR -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <span class="logo-icon">📚</span>
-                    <h2>SIKELAS</h2>
+                    <span class="logo-icon">🎓</span>
+                    <h2>SIK</h2>
                 </div>
                 <p class="class-name">XI MIPA 1</p>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link active"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
                 <li class="nav-item"><a href="biodata.html" class="nav-link"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
-                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
-                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Piket</span></a></li>
                 <li class="nav-item"><a href="absensi.html" class="nav-link"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
                 <li class="nav-item"><a href="nilai.html" class="nav-link"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
             </ul>
             <div class="sidebar-footer">
-                <div class="wali-kelas">
-                    <p class="label">Wali Kelas</p>
-                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                    <p>Wali Kelas</p>
+                    <p style="color: var(--text-main); font-weight: 500;">Bu Siti Aminah, S.Pd</p>
+                    <p style="font-size: 10px; opacity: 0.7;">NISN: 198501282010012009</p>
                 </div>
+                <button onclick="logoutUser()" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%;">🚪 Keluar</button>
             </div>
         </nav>
         
         <!-- MAIN CONTENT -->
         <main class="main-content">
-            <header class="header">
-                <div class="header-left">
-                    <h1>Selamat Datang! 👋</h1>
-                    <p class="subtitle">Sistem Informasi Kelas XI MIPA 1 - SMA Negeri 1</p>
-                </div>
-            </header>
             
-            <!-- DASHBOARD -->
+            <!-- DYNAMIC HERO SECTION -->
+            <div class="hero-card">
+                <div class="hero-bg-accent"></div>
+                <div class="hero-content">
+                    <p class="hero-greeting">Halo, Semangat Belajar! 🚀</p>
+                    <h1 class="hero-title" id="userNameDisplay">Selamat Datang<br>Siswa Berprestasi</h1>
+                    <div class="hero-date">
+                        <span>📅</span> <span id="currentDate">Senin, 17 Desember 2025</span>
+                    </div>
+                </div>
+                
+                <!-- STATS (Dynamic) -->
+                <div class="hero-stats" id="heroStats">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- DASHBOARD GRID -->
             <div class="dashboard">
                 
-                <!-- ====================================
-                     JADWAL DENGAN TABS (SENIN-JUMAT)
-                     Klik tab untuk melihat jadwal hari itu
-                ==================================== -->
-                <section class="card schedule-card">
+                <!-- JADWAL PELAJARAN -->
+                <section class="card">
                     <div class="card-header">
                         <h3>📅 Jadwal Pelajaran</h3>
-                        <span class="badge">Klik Hari</span>
                     </div>
-                    <div class="card-body">
-                        <div class="schedule-tabs">
-                            <!-- RADIO BUTTONS (HIDDEN) -->
-                            <input type="radio" name="schedule-tab" id="tab-senin" checked>
-                            <input type="radio" name="schedule-tab" id="tab-selasa">
-                            <input type="radio" name="schedule-tab" id="tab-rabu">
-                            <input type="radio" name="schedule-tab" id="tab-kamis">
-                            <input type="radio" name="schedule-tab" id="tab-jumat">
-                            
-                            <!-- TAB LABELS -->
-                            <div class="tab-labels">
-                                <label for="tab-senin" class="tab-label label-senin">Senin</label>
-                                <label for="tab-selasa" class="tab-label label-selasa">Selasa</label>
-                                <label for="tab-rabu" class="tab-label label-rabu">Rabu</label>
-                                <label for="tab-kamis" class="tab-label label-kamis">Kamis</label>
-                                <label for="tab-jumat" class="tab-label label-jumat">Jumat</label>
-                            </div>
-                            
-                            <!-- JADWAL SENIN -->
-                            <div class="tab-content schedule-senin">
-                                <table class="schedule-table">
-                                    <thead><tr><th>Jam</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="time">07:00-08:30</td><td class="subject"><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td class="teacher">Pak Ahmad</td></tr>
-                                        <tr><td class="time">08:30-10:00</td><td class="subject"><span class="subject-dot" style="background:#10B981;"></span>Fisika</td><td class="teacher">Bu Dewi</td></tr>
-                                        <tr class="break-row"><td class="time">10:00-10:15</td><td colspan="2" class="break">☕ Istirahat</td></tr>
-                                        <tr><td class="time">10:15-11:45</td><td class="subject"><span class="subject-dot" style="background:#F59E0B;"></span>Kimia</td><td class="teacher">Pak Budi</td></tr>
-                                        <tr><td class="time">11:45-12:30</td><td class="subject"><span class="subject-dot" style="background:#EC4899;"></span>B. Indonesia</td><td class="teacher">Bu Sari</td></tr>
-                                        <tr class="break-row"><td class="time">12:30-13:00</td><td colspan="2" class="break">🍱 Istirahat</td></tr>
-                                        <tr><td class="time">13:00-14:30</td><td class="subject"><span class="subject-dot" style="background:#8B5CF6;"></span>B. Inggris</td><td class="teacher">Bu Linda</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <!-- JADWAL SELASA -->
-                            <div class="tab-content schedule-selasa">
-                                <table class="schedule-table">
-                                    <thead><tr><th>Jam</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="time">07:00-08:30</td><td class="subject"><span class="subject-dot" style="background:#10B981;"></span>Biologi</td><td class="teacher">Bu Ratna</td></tr>
-                                        <tr><td class="time">08:30-10:00</td><td class="subject"><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td class="teacher">Pak Ahmad</td></tr>
-                                        <tr class="break-row"><td class="time">10:00-10:15</td><td colspan="2" class="break">☕ Istirahat</td></tr>
-                                        <tr><td class="time">10:15-11:45</td><td class="subject"><span class="subject-dot" style="background:#3B82F6;"></span>Sejarah</td><td class="teacher">Pak Joko</td></tr>
-                                        <tr><td class="time">11:45-12:30</td><td class="subject"><span class="subject-dot" style="background:#EF4444;"></span>PKN</td><td class="teacher">Bu Ani</td></tr>
-                                        <tr class="break-row"><td class="time">12:30-13:00</td><td colspan="2" class="break">🍱 Istirahat</td></tr>
-                                        <tr><td class="time">13:00-14:30</td><td class="subject"><span class="subject-dot" style="background:#F59E0B;"></span>Seni Budaya</td><td class="teacher">Pak Rudi</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <!-- JADWAL RABU -->
-                            <div class="tab-content schedule-rabu">
-                                <table class="schedule-table">
-                                    <thead><tr><th>Jam</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="time">07:00-08:30</td><td class="subject"><span class="subject-dot" style="background:#8B5CF6;"></span>B. Inggris</td><td class="teacher">Bu Linda</td></tr>
-                                        <tr><td class="time">08:30-10:00</td><td class="subject"><span class="subject-dot" style="background:#F59E0B;"></span>Kimia</td><td class="teacher">Pak Budi</td></tr>
-                                        <tr class="break-row"><td class="time">10:00-10:15</td><td colspan="2" class="break">☕ Istirahat</td></tr>
-                                        <tr><td class="time">10:15-11:45</td><td class="subject"><span class="subject-dot" style="background:#10B981;"></span>Fisika</td><td class="teacher">Bu Dewi</td></tr>
-                                        <tr><td class="time">11:45-12:30</td><td class="subject"><span class="subject-dot" style="background:#EC4899;"></span>Prakarya</td><td class="teacher">Pak Hendra</td></tr>
-                                        <tr class="break-row"><td class="time">12:30-13:00</td><td colspan="2" class="break">🍱 Istirahat</td></tr>
-                                        <tr><td class="time">13:00-14:30</td><td class="subject"><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td class="teacher">Pak Ahmad</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <!-- JADWAL KAMIS -->
-                            <div class="tab-content schedule-kamis">
-                                <table class="schedule-table">
-                                    <thead><tr><th>Jam</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="time">07:00-08:30</td><td class="subject"><span class="subject-dot" style="background:#10B981;"></span>Biologi</td><td class="teacher">Bu Ratna</td></tr>
-                                        <tr><td class="time">08:30-10:00</td><td class="subject"><span class="subject-dot" style="background:#EC4899;"></span>B. Indonesia</td><td class="teacher">Bu Sari</td></tr>
-                                        <tr class="break-row"><td class="time">10:00-10:15</td><td colspan="2" class="break">☕ Istirahat</td></tr>
-                                        <tr><td class="time">10:15-11:45</td><td class="subject"><span class="subject-dot" style="background:#14B8A6;"></span>Geografi</td><td class="teacher">Pak Doni</td></tr>
-                                        <tr><td class="time">11:45-12:30</td><td class="subject"><span class="subject-dot" style="background:#8B5CF6;"></span>B. Inggris</td><td class="teacher">Bu Linda</td></tr>
-                                        <tr class="break-row"><td class="time">12:30-13:00</td><td colspan="2" class="break">🍱 Istirahat</td></tr>
-                                        <tr><td class="time">13:00-14:30</td><td class="subject"><span class="subject-dot" style="background:#F97316;"></span>Penjaskes</td><td class="teacher">Pak Agus</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <!-- JADWAL JUMAT -->
-                            <div class="tab-content schedule-jumat">
-                                <table class="schedule-table">
-                                    <thead><tr><th>Jam</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="time">07:00-08:00</td><td class="subject"><span class="subject-dot" style="background:#6366F1;"></span>Agama</td><td class="teacher">Pak Ustad</td></tr>
-                                        <tr><td class="time">08:00-09:30</td><td class="subject"><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td class="teacher">Pak Ahmad</td></tr>
-                                        <tr class="break-row"><td class="time">09:30-10:00</td><td colspan="2" class="break">☕ Istirahat</td></tr>
-                                        <tr><td class="time">10:00-11:30</td><td class="subject"><span class="subject-dot" style="background:#F59E0B;"></span>Kimia</td><td class="teacher">Pak Budi</td></tr>
-                                        <tr><td class="time">11:30-12:00</td><td class="subject"><span class="subject-dot" style="background:#10B981;"></span>BK</td><td class="teacher">Bu Siti</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    
+                    <!-- JS TABS -->
+                    <div class="schedule-tabs">
+                        <button class="tab-btn active" onclick="showSchedule('senin', this)">Senin</button>
+                        <button class="tab-btn" onclick="showSchedule('selasa', this)">Selasa</button>
+                        <button class="tab-btn" onclick="showSchedule('rabu', this)">Rabu</button>
+                        <button class="tab-btn" onclick="showSchedule('kamis', this)">Kamis</button>
+                        <button class="tab-btn" onclick="showSchedule('jumat', this)">Jumat</button>
                     </div>
+
+                    <!-- CONTENT SENIN -->
+                    <div id="sched-senin" class="schedule-content">
+                        <table class="schedule-table">
+                            <thead><tr><th>Jam</th><th>Mapel</th><th>Guru</th></tr></thead>
+                            <tbody>
+                                <tr><td class="time">07:00</td><td><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td>Pak Ahmad</td></tr>
+                                <tr><td class="time">08:30</td><td><span class="subject-dot" style="background:#10B981;"></span>Fisika</td><td>Bu Dewi</td></tr>
+                                <tr><td colspan="3" class="break">☕ Istirahat</td></tr>
+                                <tr><td class="time">10:15</td><td><span class="subject-dot" style="background:#F59E0B;"></span>Kimia</td><td>Pak Budi</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- CONTENT SELASA (Hidden by default) -->
+                    <div id="sched-selasa" class="schedule-content" style="display:none;">
+                        <table class="schedule-table">
+                            <thead><tr><th>Jam</th><th>Mapel</th><th>Guru</th></tr></thead>
+                            <tbody>
+                                <tr><td class="time">07:00</td><td><span class="subject-dot" style="background:#10B981;"></span>Biologi</td><td>Bu Ratna</td></tr>
+                                <tr><td class="time">08:30</td><td><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td>Pak Ahmad</td></tr>
+                                <tr><td colspan="3" class="break">☕ Istirahat</td></tr>
+                                <tr><td class="time">10:15</td><td><span class="subject-dot" style="background:#3B82F6;"></span>Sejarah</td><td>Pak Joko</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                     <!-- CONTENT RABU -->
+                     <div id="sched-rabu" class="schedule-content" style="display:none;">
+                        <table class="schedule-table">
+                            <thead><tr><th>Jam</th><th>Mapel</th><th>Guru</th></tr></thead>
+                            <tbody>
+                                <tr><td class="time">07:00</td><td><span class="subject-dot" style="background:#8B5CF6;"></span>B. Inggris</td><td>Bu Linda</td></tr>
+                                <tr><td class="time">08:30</td><td><span class="subject-dot" style="background:#F59E0B;"></span>Kimia</td><td>Pak Budi</td></tr>
+                                <tr><td colspan="3" class="break">☕ Istirahat</td></tr>
+                                <tr><td class="time">10:15</td><td><span class="subject-dot" style="background:#10B981;"></span>Fisika</td><td>Bu Dewi</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CONTENT KAMIS -->
+                    <div id="sched-kamis" class="schedule-content" style="display:none;">
+                        <table class="schedule-table">
+                            <thead><tr><th>Jam</th><th>Mapel</th><th>Guru</th></tr></thead>
+                            <tbody>
+                                <tr><td class="time">07:00</td><td><span class="subject-dot" style="background:#10B981;"></span>Biologi</td><td>Bu Ratna</td></tr>
+                                <tr><td class="time">08:30</td><td><span class="subject-dot" style="background:#EC4899;"></span>B. Indo</td><td>Bu Sari</td></tr>
+                                <tr><td colspan="3" class="break">☕ Istirahat</td></tr>
+                                <tr><td class="time">10:15</td><td><span class="subject-dot" style="background:#14B8A6;"></span>Geografi</td><td>Pak Doni</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CONTENT JUMAT -->
+                    <div id="sched-jumat" class="schedule-content" style="display:none;">
+                        <table class="schedule-table">
+                            <thead><tr><th>Jam</th><th>Mapel</th><th>Guru</th></tr></thead>
+                            <tbody>
+                                <tr><td class="time">07:00</td><td><span class="subject-dot" style="background:#6366F1;"></span>Agama</td><td>Pak Ustad</td></tr>
+                                <tr><td class="time">08:30</td><td><span class="subject-dot" style="background:#4F46E5;"></span>Matematika</td><td>Pak Ahmad</td></tr>
+                                <tr><td colspan="3" class="break">☕ Sholat Jumat</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </section>
                 
-                <!-- RANGKING -->
-                <section class="card ranking-card">
+                <!-- RANGKING KELAS -->
+                <section class="card">
                     <div class="card-header">
-                        <h3>🏆 Rangking Kelas</h3>
-                        <span class="badge">Semester 1</span>
+                        <h3>🏆 Top Siswa</h3>
                     </div>
-                    <div class="card-body">
-                        <div class="leaderboard">
-                            <div class="rank-item rank-1"><div class="rank-position"><span class="medal">🥇</span><span class="number">1</span></div><div class="rank-info"><div class="avatar" style="background:linear-gradient(135deg,#FFD700,#FFA500);">AS</div><div class="details"><h4>Anisa Safitri</h4><p>Rata-rata: 95.8</p></div></div><div class="rank-score">95.8</div></div>
-                            <div class="rank-item rank-2"><div class="rank-position"><span class="medal">🥈</span><span class="number">2</span></div><div class="rank-info"><div class="avatar" style="background:linear-gradient(135deg,#C0C0C0,#A8A8A8);">BP</div><div class="details"><h4>Budi Pratama</h4><p>Rata-rata: 93.5</p></div></div><div class="rank-score">93.5</div></div>
-                            <div class="rank-item rank-3"><div class="rank-position"><span class="medal">🥉</span><span class="number">3</span></div><div class="rank-info"><div class="avatar" style="background:linear-gradient(135deg,#CD7F32,#B8860B);">CW</div><div class="details"><h4>Citra Wulandari</h4><p>Rata-rata: 92.0</p></div></div><div class="rank-score">92.0</div></div>
-                            <div class="rank-item"><div class="rank-position"><span class="number">4</span></div><div class="rank-info"><div class="avatar">DH</div><div class="details"><h4>Dimas Hakim</h4><p>Rata-rata: 90.7</p></div></div><div class="rank-score">90.7</div></div>
-                            <div class="rank-item"><div class="rank-position"><span class="number">5</span></div><div class="rank-info"><div class="avatar">EN</div><div class="details"><h4>Eka Nugraha</h4><p>Rata-rata: 89.3</p></div></div><div class="rank-score">89.3</div></div>
-                        </div>
+                    <div class="leaderboard" id="dashboardRankList">
+                        <!-- Populated by JS -->
                     </div>
                 </section>
             </div>
             
             <!-- QUICK INFO -->
             <div class="quick-info">
-                <div class="info-card"><div class="info-icon" style="background:linear-gradient(135deg,#4F46E5,#7C3AED);">👥</div><div class="info-content"><h4>Total Siswa</h4><p class="info-value">15</p></div></div>
-                <div class="info-card"><div class="info-icon" style="background:linear-gradient(135deg,#10B981,#059669);">✅</div><div class="info-content"><h4>Hadir Hari Ini</h4><p class="info-value">14</p></div></div>
-                <div class="info-card"><div class="info-icon" style="background:linear-gradient(135deg,#F59E0B,#D97706);">📈</div><div class="info-content"><h4>Rata-rata Kelas</h4><p class="info-value">87.3</p></div></div>
-                <div class="info-card"><div class="info-icon" style="background:linear-gradient(135deg,#EC4899,#DB2777);">🧹</div><div class="info-content"><h4>Piket Hari Ini</h4><p class="info-value">Senin</p></div></div>
+                <div class="info-card"><div class="info-icon" style="background:rgba(79, 70, 229, 0.2); color: #818cf8;">👥</div><div><h4>15</h4><p style="font-size:12px; opacity:0.7;">Siswa</p></div></div>
+                <div class="info-card"><div class="info-icon" style="background:rgba(16, 185, 129, 0.2); color: #34d399;">✅</div><div><h4>14</h4><p>Hadir</p></div></div>
+                <div class="info-card"><div class="info-icon" style="background:rgba(245, 158, 11, 0.2); color: #fbbf24;">🧹</div><div><h4>Senin</h4><p>Piket</p></div></div>
             </div>
         </main>
     </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script>
+        // Check Auth on Load
+        checkAuth();
+        
+        // Display User Info & Stats
+        const user = getCurrentUser();
+        const studentData = getStudents(); // Get all data
+
+        if (user) {
+            // 1. GREETING
+            if (user.role === 'teacher') {
+                 document.getElementById('userNameDisplay').innerHTML = `Selamat Datang<br>Ibu Wali Kelas`;
+                 document.querySelector('.hero-greeting').innerText = "Halo, Bu Siti Aminah! 👩‍🏫";
+            } else {
+                 document.getElementById('userNameDisplay').innerHTML = `Selamat Datang<br>${user.name}`;
+            }
+
+            // 2. STATS LOGIC
+            const statsContainer = document.getElementById('heroStats');
+            if (user.role === 'teacher') {
+                // Teacher View
+                statsContainer.innerHTML = `
+                    <div class="stat-item">
+                        <span class="stat-val">${studentData.length}</span>
+                        <span class="stat-label">Murid Aktif</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">24/25</span>
+                        <span class="stat-label">Tahun Ajar</span>
+                    </div>
+                `;
+            } else {
+                // Student View
+                // Calculate own average
+                const myData = studentData.find(s => s.id === user.id);
+                let myAvg = "0";
+                if(myData) {
+                    const g = myData.grades;
+                    myAvg = ((Number(g.mtk)+Number(g.fis)+Number(g.kim)+Number(g.bio)+Number(g.ind)+Number(g.ing))/6).toFixed(1);
+                }
+
+                statsContainer.innerHTML = `
+                    <div class="stat-item">
+                        <span class="stat-val">${studentData.length}</span>
+                        <span class="stat-label">Teman</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">${myAvg}</span>
+                        <span class="stat-label">Rata-rata</span>
+                    </div>
+                `;
+            }
+
+            // 3. LEADERBOARD LOGIC
+            const rankContainer = document.getElementById('dashboardRankList');
+            
+            // Calculate avgs
+            const ranked = studentData.map(s => {
+                const g = s.grades;
+                const avg = ((Number(g.mtk)+Number(g.fis)+Number(g.kim)+Number(g.bio)+Number(g.ind)+Number(g.ing))/6).toFixed(1);
+                return {...s, avg};
+            }).sort((a,b) => b.avg - a.avg).slice(0,3);
+
+            ranked.forEach((s, idx) => {
+                const div = document.createElement('div');
+                div.className = `rank-item rank-${idx+1}`;
+                div.innerHTML = `
+                    <div class="rank-position">${idx+1}</div>
+                    <div class="rank-info">
+                        <div class="avatar-small" style="background:${s.color}">${s.avatar}</div>
+                        <div class="rank-details">
+                            <h4>${s.name}</h4>
+                            <p style="font-size:10px; color:var(--text-muted)">NIS: ${s.nis}</p>
+                            <p style="font-size:11px">Score: <b>${s.avg}</b></p>
+                        </div>
+                    </div>
+                `;
+                rankContainer.appendChild(div);
+            });
+        }
+
+        // Setup Date
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString('id-ID', options);
+
+        // Schedule Tab Logic
+        function showSchedule(day, btn) {
+            // Hide all content
+            document.querySelectorAll('.schedule-content').forEach(el => el.style.display = 'none');
+            // Show selected
+            document.getElementById('sched-' + day).style.display = 'block';
+            
+            // Update active btn
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
 </body>
 </html>

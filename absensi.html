@@ -4,124 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi - SIKELAS XI MIPA 1</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table th {
+            text-align: left;
+            padding: 16px;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .data-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px; font-weight: bold;
+            color: white;
+            min-width: 30px; text-align: center;
+        }
+        .status-hadir { background: var(--success); }
+        .status-izin { background: var(--warning); }
+        .status-sakit { background: var(--secondary); }
+        .status-alpha { background: var(--danger); }
+        
+        .grade-a { color: var(--success); font-weight: bold; }
+        .grade-b { color: var(--warning); font-weight: bold; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- SIDEBAR NAVIGATION -->
+        <!-- SIDEBAR -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <span class="logo-icon">📚</span>
-                    <h2>SIKELAS</h2>
+                    <span class="logo-icon">🎓</span>
+                    <h2>SIK</h2>
                 </div>
                 <p class="class-name">XI MIPA 1</p>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
                 <li class="nav-item"><a href="biodata.html" class="nav-link"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
-                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
-                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Piket</span></a></li>
                 <li class="nav-item"><a href="absensi.html" class="nav-link active"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
                 <li class="nav-item"><a href="nilai.html" class="nav-link"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
             </ul>
             <div class="sidebar-footer">
-                <div class="wali-kelas">
-                    <p class="label">Wali Kelas</p>
-                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                    <p>Wali Kelas</p>
+                    <p style="color: var(--text-main); font-weight: 500;">Bu Siti Aminah, S.Pd</p>
+                    <p style="font-size: 10px; opacity: 0.7;">NISN: 198501282010012009</p>
                 </div>
+                <button onclick="logoutUser()" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%;">🚪 Keluar</button>
             </div>
         </nav>
         
-        <!-- MAIN CONTENT - Rekap Absensi 15 Siswa -->
         <main class="main-content">
-            <header class="header">
-                <div class="header-left">
-                    <h1>📋 Rekap Absensi</h1>
-                    <p class="subtitle">Data kehadiran siswa kelas XI MIPA 1</p>
-                </div>
-                <div class="header-right">
-                    <div class="date-display">
-                        <span class="day">Bulan</span>
-                        <span class="date">Desember 2024</span>
-                    </div>
-                </div>
-            </header>
+            <h1 class="hero-title" style="font-size: 28px; margin-bottom: 8px;">📋 Rekap Absensi</h1>
+            <p style="color: var(--text-muted); margin-bottom: 32px;">Kehadiran Semester 1 Tahun Ajaran 2024/2025</p>
             
-            <!-- STATISTIK ABSENSI -->
-            <div class="quick-info" style="margin-bottom: 24px;">
-                <div class="info-card">
-                    <div class="info-icon" style="background: linear-gradient(135deg, #10B981, #059669);">✅</div>
-                    <div class="info-content"><h4>Total Hadir</h4><p class="info-value">210</p></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">📝</div>
-                    <div class="info-content"><h4>Total Izin</h4><p class="info-value">8</p></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon" style="background: linear-gradient(135deg, #3B82F6, #2563EB);">🏥</div>
-                    <div class="info-content"><h4>Total Sakit</h4><p class="info-value">5</p></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon" style="background: linear-gradient(135deg, #EF4444, #DC2626);">❌</div>
-                    <div class="info-content"><h4>Total Alpha</h4><p class="info-value">2</p></div>
-                </div>
-            </div>
-            
-            <!-- TABEL ABSENSI 15 SISWA -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>📊 Rekap Per Siswa</h3>
-                    <span class="badge">Semester 1</span>
-                </div>
-                <div class="card-body" style="overflow-x: auto;">
+                <div style="overflow-x: auto;">
                     <table class="data-table">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama Siswa</th>
-                                <th style="text-align: center;">H</th>
-                                <th style="text-align: center;">I</th>
-                                <th style="text-align: center;">S</th>
-                                <th style="text-align: center;">A</th>
-                                <th style="text-align: center;">%</th>
+                                <th class="text-center">H</th>
+                                <th class="text-center">I</th>
+                                <th class="text-center">S</th>
+                                <th class="text-center">A</th>
+                                <th class="text-center">%</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Ahmad Fauzi</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>2</td><td>Anisa Safitri</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>3</td><td>Budi Pratama</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
-                            <tr><td>4</td><td>Citra Wulandari</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>5</td><td>Dimas Hakim</td><td style="text-align:center;"><span class="status-badge status-hadir">13</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">2</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-b">87%</span></td></tr>
-                            <tr><td>6</td><td>Eka Nugraha</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>7</td><td>Fajar Aditya</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
-                            <tr><td>8</td><td>Gita Rahayu</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>9</td><td>Hendra Wijaya</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
-                            <tr><td>10</td><td>Indah Permata</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>11</td><td>Joko Susanto</td><td style="text-align:center;"><span class="status-badge status-hadir">13</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-alpha">1</span></td><td style="text-align:center;"><span class="grade-b">87%</span></td></tr>
-                            <tr><td>12</td><td>Kartika Dewi</td><td style="text-align:center;"><span class="status-badge status-hadir">15</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">100%</span></td></tr>
-                            <tr><td>13</td><td>Lukman Hakim</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
-                            <tr><td>14</td><td>Maya Sari</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;"><span class="status-badge status-izin">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
-                            <tr><td>15</td><td>Nico Pratama</td><td style="text-align:center;"><span class="status-badge status-hadir">14</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="status-badge status-sakit">1</span></td><td style="text-align:center;">0</td><td style="text-align:center;"><span class="grade-a">93%</span></td></tr>
+                        <tbody id="absenTableBody">
+                            <!-- Populated by JS -->
                         </tbody>
                     </table>
                 </div>
             </div>
-            
-            <!-- KETERANGAN -->
-            <div class="card" style="margin-top: 24px;">
-                <div class="card-header"><h3>📌 Keterangan Status</h3></div>
-                <div class="card-body">
-                    <div style="display: flex; gap: 32px; flex-wrap: wrap;">
-                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-hadir">H</span><span style="color: var(--text-secondary);">= Hadir</span></div>
-                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-izin">I</span><span style="color: var(--text-secondary);">= Izin</span></div>
-                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-sakit">S</span><span style="color: var(--text-secondary);">= Sakit</span></div>
-                        <div style="display: flex; align-items: center; gap: 8px;"><span class="status-badge status-alpha">A</span><span style="color: var(--text-secondary);">= Alpha</span></div>
-                    </div>
-                </div>
-            </div>
+             <!-- TEACHER ACTIONS -->
+             <div id="teacherActions" style="margin-top: 20px; display: none; justify-content: flex-end;">
+                 <button onclick="handleSaveAbsen()" class="btn-primary">💾 Simpan Absensi</button>
+             </div>
         </main>
     </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        checkAuth();
+        const user = getCurrentUser();
+        const isTeacher = user.role === 'teacher';
+
+        if (isTeacher) {
+            document.getElementById('teacherActions').style.display = 'flex';
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('absenTableBody');
+            tbody.innerHTML = '';
+            const students = getStudents();
+
+            students.forEach((s, index) => {
+                const tr = document.createElement('tr');
+                const stats = s.stats;
+                
+                // Calc percentage: Assumed total days = sum of all or fixed? 
+                // Let's assume total days is sum of current entries for now or fixed 15 like previous static data.
+                // Previous static had 15 total days for H (hadir).
+                // Let's calculate total as H+I+S+A.
+                const total = parseInt(stats.h) + parseInt(stats.i) + parseInt(stats.s) + parseInt(stats.a);
+                const percent = total === 0 ? 0 : Math.round((parseInt(stats.h) / total) * 100);
+                
+                let gradeClass = 'grade-a';
+                if (percent < 90) gradeClass = 'grade-b';
+                if (percent < 75) gradeClass = 'grade-d';
+
+                let rowHtml = `<td>${index + 1}</td>
+                               <td>${s.name}</td>`;
+                
+                if (isTeacher) {
+                    rowHtml += `
+                        <td class="text-center"><input type="number" class="grade-input" style="width:40px" value="${stats.h}" data-id="${s.id}" data-stat="h"></td>
+                        <td class="text-center"><input type="number" class="grade-input" style="width:40px" value="${stats.i}" data-id="${s.id}" data-stat="i"></td>
+                        <td class="text-center"><input type="number" class="grade-input" style="width:40px" value="${stats.s}" data-id="${s.id}" data-stat="s"></td>
+                        <td class="text-center"><input type="number" class="grade-input" style="width:40px" value="${stats.a}" data-id="${s.id}" data-stat="a"></td>
+                        <td class="text-center"><span class="${gradeClass}">${percent}%</span></td>
+                    `;
+                } else {
+                    rowHtml += `
+                        <td class="text-center"><span class="status-badge status-hadir">${stats.h}</span></td>
+                        <td class="text-center">${stats.i > 0 ? '<span class="status-badge status-izin">'+stats.i+'</span>' : '0'}</td>
+                        <td class="text-center">${stats.s > 0 ? '<span class="status-badge status-sakit">'+stats.s+'</span>' : '0'}</td>
+                        <td class="text-center">${stats.a > 0 ? '<span class="status-badge status-alpha">'+stats.a+'</span>' : '0'}</td>
+                        <td class="text-center"><span class="${gradeClass}">${percent}%</span></td>
+                    `;
+                }
+                tr.innerHTML = rowHtml;
+                tbody.appendChild(tr);
+            });
+            if (!isTeacher) highlightCurrentUser();
+        }
+
+        function handleSaveAbsen() {
+             if (!confirm('Simpan data absensi?')) return;
+             const inputs = document.querySelectorAll('.grade-input');
+             const dataToUpdate = getStudents();
+             
+             inputs.forEach(input => {
+                 const id = input.getAttribute('data-id');
+                 const stat = input.getAttribute('data-stat');
+                 const val = input.value;
+                 const student = dataToUpdate.find(s => s.id === id);
+                 if (student) student.stats[stat] = Number(val);
+             });
+             
+             saveStudents(dataToUpdate);
+             alert('Data Absensi Tersimpan!');
+             renderTable();
+        }
+
+        renderTable();
+    </script>
 </body>
 </html>

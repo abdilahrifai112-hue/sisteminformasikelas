@@ -4,119 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struktur Kelas - SIKELAS XI MIPA 1</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .struktur-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .org-card {
+            background: var(--bg-card);
+            border: var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            width: 220px;
+            position: relative;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .org-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .org-avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; font-weight: 700;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .org-role {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .org-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Connecting Lines */
+        .tree-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+        
+        /* Simple hierarchy lines via pseudo-elements is complex in pure CSS, skipping for cleanliness or could add simple borders if needed. 
+           For modern premium look, cards floating is often cleaner than ugly lines. 
+           We will use a subtle background line if needed.
+        */
+       
+       .wali-card {
+           border: 2px solid var(--primary);
+           background: rgba(99, 102, 241, 0.1);
+       }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- SIDEBAR NAVIGATION -->
+        <!-- SIDEBAR -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <span class="logo-icon">📚</span>
-                    <h2>SIKELAS</h2>
+                    <span class="logo-icon">🎓</span>
+                    <h2>SIK</h2>
                 </div>
                 <p class="class-name">XI MIPA 1</p>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
                 <li class="nav-item"><a href="biodata.html" class="nav-link"><span class="nav-icon">👤</span><span class="nav-text">Profil Saya</span></a></li>
-                <li class="nav-item"><a href="struktur.html" class="nav-link active"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur Kelas</span></a></li>
-                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Jadwal Piket</span></a></li>
+                <li class="nav-item"><a href="struktur.html" class="nav-link active"><span class="nav-icon">🏛️</span><span class="nav-text">Struktur</span></a></li>
+                <li class="nav-item"><a href="piket.html" class="nav-link"><span class="nav-icon">🧹</span><span class="nav-text">Piket</span></a></li>
                 <li class="nav-item"><a href="absensi.html" class="nav-link"><span class="nav-icon">📋</span><span class="nav-text">Absensi</span></a></li>
                 <li class="nav-item"><a href="nilai.html" class="nav-link"><span class="nav-icon">📊</span><span class="nav-text">Nilai</span></a></li>
             </ul>
             <div class="sidebar-footer">
-                <div class="wali-kelas">
-                    <p class="label">Wali Kelas</p>
-                    <p class="name">Bu Siti Aminah, S.Pd</p>
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+                    <p>Wali Kelas</p>
+                    <p style="color: var(--text-main); font-weight: 500;">Bu Siti Aminah, S.Pd</p>
+                    <p style="font-size: 10px; opacity: 0.7;">NISN: 198501282010012009</p>
                 </div>
+                <button onclick="logoutUser()" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%;">🚪 Keluar</button>
             </div>
         </nav>
         
-        <!-- MAIN CONTENT - STRUKTUR KELAS -->
         <main class="main-content">
-            <header class="header">
-                <div class="header-left">
-                    <h1>🏛️ Struktur Kelas</h1>
-                    <p class="subtitle">Susunan pengurus kelas XI MIPA 1</p>
-                </div>
-                <div class="header-right">
-                    <div class="date-display">
-                        <span class="day">Periode</span>
-                        <span class="date">2024/2025</span>
-                    </div>
-                </div>
-            </header>
+            <h1 class="hero-title" style="font-size: 28px; margin-bottom: 8px; text-align:center;">🏛️ Struktur Kelas</h1>
+            <p style="color: var(--text-muted); margin-bottom: 48px; text-align:center;">Organisasi Kelas XI MIPA 1 Periode 2024/2025</p>
             
-            <!-- ========================================
-                 STRUKTUR ORGANISASI KELAS
-                 Wali Kelas, Ketua, Wakil, Bendahara, 
-                 Sekretaris, Humas
-            ======================================== -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>📊 Susunan Pengurus Kelas</h3>
-                    <span class="badge">Aktif</span>
-                </div>
-                <div class="card-body">
-                    <div class="struktur-container">
-                        
-                        <!-- WALI KELAS -->
-                        <div class="struktur-ketua">
-                            <div class="struktur-card ketua">
-                                <div class="avatar-large" style="background: linear-gradient(135deg, #10B981, #059669);">SA</div>
-                                <p class="position">Wali Kelas</p>
-                                <p class="name">Bu Siti Aminah, S.Pd</p>
-                            </div>
-                        </div>
-                        
-                        <!-- KETUA KELAS -->
-                        <div class="struktur-ketua">
-                            <div class="struktur-card ketua">
-                                <div class="avatar-large" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">BP</div>
-                                <p class="position">Ketua Kelas</p>
-                                <p class="name">Budi Pratama</p>
-                            </div>
-                        </div>
-                        
-                        <!-- WAKIL KETUA -->
-                        <div class="struktur-ketua">
-                            <div class="struktur-card">
-                                <div class="avatar-large" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">AS</div>
-                                <p class="position">Wakil Ketua</p>
-                                <p class="name">Anisa Safitri</p>
-                            </div>
-                        </div>
-                        
-                        <!-- SEKRETARIS & BENDAHARA -->
-                        <div class="struktur-row">
-                            <div class="struktur-card">
-                                <div class="avatar-large" style="background: linear-gradient(135deg, #EC4899, #F472B6);">CW</div>
-                                <p class="position">Sekretaris</p>
-                                <p class="name">Citra Wulandari</p>
-                            </div>
-                            
-                            <div class="struktur-card">
-                                <div class="avatar-large" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">DH</div>
-                                <p class="position">Bendahara</p>
-                                <p class="name">Dimas Hakim</p>
-                            </div>
-                        </div>
-                        
-                        <!-- HUMAS -->
-                        <div class="struktur-ketua">
-                            <div class="struktur-card">
-                                <div class="avatar-large" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">EN</div>
-                                <p class="position">Humas</p>
-                                <p class="name">Eka Nugraha</p>
-                            </div>
-                        </div>
-                        
+            <div class="struktur-tree">
+                
+                <!-- WALI KELAS -->
+                <div class="tree-row">
+                    <div class="org-card wali-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #10B981, #059669);">SA</div>
+                        <p class="org-role">Wali Kelas</p>
+                        <p class="org-name">Bu Siti Aminah</p>
                     </div>
                 </div>
+
+                <!-- KETUA KELAS -->
+                <div class="tree-row">
+                    <div class="org-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #4F46E5, #7C3AED);">BP</div>
+                        <p class="org-role">Ketua Kelas</p>
+                        <p class="org-name">Budi Pratama</p>
+                    </div>
+                </div>
+
+                <!-- WAKIL, SEKRETARIS, BENDAHARA -->
+                <div class="tree-row">
+                    <div class="org-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">AS</div>
+                        <p class="org-role">Wakil Ketua</p>
+                        <p class="org-name">Anisa Safitri</p>
+                    </div>
+                    <div class="org-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #EC4899, #F472B6);">CW</div>
+                        <p class="org-role">Sekretaris</p>
+                        <p class="org-name">Citra W.</p>
+                    </div>
+                    <div class="org-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">DH</div>
+                        <p class="org-role">Bendahara</p>
+                        <p class="org-name">Dimas Hakim</p>
+                    </div>
+                </div>
+
+                <!-- SEKSI -->
+                <div class="tree-row">
+                    <div class="org-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">EN</div>
+                        <p class="org-role">Humas</p>
+                        <p class="org-name">Eka Nugraha</p>
+                    </div>
+                     <div class="org-card">
+                        <div class="org-avatar" style="background: linear-gradient(135deg, #EF4444, #F87171);">FA</div>
+                        <p class="org-role">Keamanan</p>
+                        <p class="org-name">Fajar Aditya</p>
+                    </div>
+                </div>
+
             </div>
         </main>
     </div>
+
+    <!-- SCRIPT -->
+    <script src="js/data.js"></script>
+    <script>
+        checkAuth();
+        // No highlighting needed here specifically, just display
+    </script>
 </body>
 </html>
