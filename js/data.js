@@ -80,11 +80,13 @@ function loginUser(studentId) {
 function loginAsTeacher() {
     const teacher = {
         id: 'TEACHER',
-        name: 'Bu Siti Aminah',
+        name: 'Abdillah Rifai S.Kom',
         role: 'teacher',
-        avatar: 'SA',
+        avatar: 'AR',
         color: 'linear-gradient(135deg, #10B981, #059669)', // Green theme for teacher
-        gender: 'Perempuan'
+        gender: 'Laki-laki',
+        birthDate: '10 Oktober 2005',
+        birthPlace: 'Australia'
     };
     localStorage.setItem(AUTH_KEY, JSON.stringify(teacher));
     return true;

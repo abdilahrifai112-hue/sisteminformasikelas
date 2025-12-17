@@ -76,7 +76,7 @@
             <div class="sidebar-footer">
                 <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
                     <p>Wali Kelas</p>
-                    <p style="color: var(--text-main); font-weight: 500;">Bu Siti Aminah, S.Pd</p>
+                    <p style="color: var(--text-main); font-weight: 500;">Abdillah Rifai S.Kom</p>
                     <p style="font-size: 10px; opacity: 0.7;">NISN: 198501282010012009</p>
                 </div>
                 <button onclick="logoutUser()" style="background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%;">🚪 Keluar</button>
@@ -96,7 +96,7 @@
                 <div class="profile-detail-card">
                     <div class="profile-row">
                         <div class="profile-icon">🎂</div>
-                        <div><p style="font-size:12px; color:var(--text-muted); text-transform:uppercase;">Tempat, Tanggal Lahir</p><p>Jakarta, 15 Januari 2008</p></div>
+                        <div><p style="font-size:12px; color:var(--text-muted); text-transform:uppercase;">Tempat, Tanggal Lahir</p><p id="profileBirth">Jakarta, 15 Januari 2008</p></div>
                     </div>
                     <div class="profile-row">
                         <div class="profile-icon">⚧️</div>
@@ -118,10 +118,17 @@
         
         if (user) {
             document.getElementById('profileName').innerText = user.name;
-            document.getElementById('profileNis').innerText = 'NIS: ' + user.nis;
+            document.getElementById('profileNis').innerText = user.role === 'teacher' ? 'NIP/NIY: ...' : 'NIS: ' + user.nis;
             document.getElementById('profileAvatar').innerText = user.avatar;
             document.getElementById('profileGender').innerText = user.gender;
             document.getElementById('profileHeader').style.background = user.color;
+            
+            // Birthday Logic
+            if(user.birthPlace && user.birthDate) {
+                document.getElementById('profileBirth').innerText = `${user.birthPlace}, ${user.birthDate}`;
+            } else {
+                 document.getElementById('profileBirth').innerText = "Jakarta, 15 Januari 2008"; // Default student fallback
+            }
         }
     </script>
 </body>
